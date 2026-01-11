@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration | Noon Seller Summit 2026</title>
+    <style>
+        :root {
+            --noon-yellow: #feee00;
+            --noon-black: #080808; /* Sampled dark shade from summit assets */
+            --bg-dark: #080808;    /* Unified background to ensure seamless logo integration */
+            --card-dark: #141414;
+            --border-dark: #222222;
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Proxima Nova", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: var(--bg-dark);
+            padding: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: none;
+            box-shadow: none;
+            line-height: 0;
+        }
+
+        .header-logo {
+            max-width: 100%;
+            height: auto;
+            max-height: 250px;
+            display: block;
+            margin: 0 auto;
+            vertical-align: bottom; 
+        }
+
+        /* Language Toggle Style */
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--noon-yellow);
+            color: var(--noon-yellow);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            line-height: 1.6;
+        }
+
+        .lang-toggle:hover {
+            background: var(--noon-yellow);
+            color: var(--noon-black);
+        }
+
+        main {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto 40px auto; 
+            padding: 20px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-dark);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+            border: 1px solid var(--border-dark);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--white);
+            font-weight: 800;
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            border: 1px solid var(--border-dark);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .step-item:hover {
+            border-color: var(--noon-yellow);
+            background-color: rgba(254, 238, 0, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .step-number {
+            background-color: var(--noon-yellow);
+            color: var(--noon-black);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-text h2 {
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+            color: var(--noon-yellow);
+        }
+
+        .step-text p {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--noon-yellow);
+            color: var(--noon-black);
+            text-decoration: none;
+            padding: 18px 48px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--white);
+            text-decoration: none;
+            padding: 14px 30px;
+            border: 1px solid var(--border-dark);
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+            box-shadow: 0 10px 25px rgba(254, 238, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--noon-black);
+            border-color: var(--white);
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.85rem;
+            color: #444;
+            background-color: var(--bg-dark);
+            margin-top: auto;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 30px 20px;
+            }
+            .step-item {
+                padding: 18px;
+            }
+            header {
+                min-height: auto;
+            }
+            .lang-toggle {
+                top: 15px;
+                right: 15px;
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <button class="lang-toggle" onclick="toggleLanguage()" id="langBtn">中文</button>
+        <img src="image_4f26ab.png" alt="Noon Seller Summit 2026 - China" class="header-logo" onerror="this.style.display='none'; document.querySelector('.fallback-header').style.display='block';">
+        <div class="fallback-header" style="display:none; color: var(--noon-yellow); font-weight: 900; font-size: 1.5rem; padding: 40px;">
+            noon SELLER SUMMIT 2026<br>
+            <small style="font-weight: 400; font-size: 1rem; color: #fff;">CHINA EDITION</small>
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <h1 id="mainTitle">Registration Steps</h1>
+            
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-text">
+                        <h2 id="step1Title">Seller Account Creation</h2>
+                        <p id="step1Desc">Begin by creating your primary seller login and verifying your email address.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-text">
+                        <h2 id="step2Title">Store Creation (UAE and KSA)</h2>
+                        <p id="step2Desc">Configure your storefront details for both the United Arab Emirates and Saudi Arabia marketplaces.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-text">
+                        <h2 id="step3Title">Legal Entity Creation</h2>
+                        <p id="step3Desc">Submit your official documentation, including your <strong>China Commercial Registration (Trade License)</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-text">
+                        <h2 id="step4Title">Final Verification</h2>
+                        <p id="step4Desc">Add Authorized Signatory passport to accept noon TnCs and start selling on noon.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-container">
+                <a href="https://sell.noon.com" class="btn-primary" id="sellBtn" target="_blank">Start Selling on noon</a>
+                <a href="https://sell.noon.com/help" class="btn-secondary" id="helpBtn" target="_blank">For more details or queries, click here</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 noon. <span id="copyrightText">All rights reserved.</span>
+    </footer>
+
+    <script>
+        let currentLang = 'en';
+
+        const translations = {
+            en: {
+                toggle: '中文',
+                title: 'Registration Steps',
+                step1Title: 'Seller Account Creation',
+                step1Desc: 'Begin by creating your primary seller login and verifying your email address.',
+                step2Title: 'Store Creation (UAE and KSA)',
+                step2Desc: 'Configure your storefront details for both the United Arab Emirates and Saudi Arabia marketplaces.',
+                step3Title: 'Legal Entity Creation',
+                step3Desc: 'Submit your official documentation, including your <strong>China Commercial Registration (Trade License)</strong>.',
+                step4Title: 'Final Verification',
+                step4Desc: 'Add Authorized Signatory passport to accept noon TnCs and start selling on noon.',
+                sellBtn: 'Start Selling on noon',
+                helpBtn: 'For more details or queries, click here',
+                copyright: 'All rights reserved.'
+            },
+            zh: {
+                toggle: 'English',
+                title: '注册步骤',
+                step1Title: '卖家账户创建',
+                step1Desc: '首先创建您的主要卖家登录账号并验证您的电子邮件地址。',
+                step2Title: '店铺创建 (阿联酋和沙特)',
+                step2Desc: '为阿联酋和沙特阿拉伯市场配置您的店铺详细信息。',
+                step3Title: '法律实体创建',
+                step3Desc: '提交您的官方文件，包括您的 <strong>中国商业登记（营业执照）</strong>。',
+                step4Title: '最终验证',
+                step4Desc: '添加授权签字人护照以接受 noon 条款并开始在 noon 上销售。',
+                sellBtn: '在 noon 开始销售',
+                helpBtn: '欲了解更多详情或咨询，请点击此处',
+                copyright: '版权所有。'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            const langData = translations[currentLang];
+
+            document.getElementById('langBtn').textContent = langData.toggle;
+            document.getElementById('mainTitle').textContent = langData.title;
+            document.getElementById('step1Title').textContent = langData.step1Title;
+            document.getElementById('step1Desc').textContent = langData.step1Desc;
+            document.getElementById('step2Title').textContent = langData.step2Title;
+            document.getElementById('step2Desc').textContent = langData.step2Desc;
+            document.getElementById('step3Title').textContent = langData.step3Title;
+            document.getElementById('step3Desc').innerHTML = langData.step3Desc;
+            document.getElementById('step4Title').textContent = langData.step4Title;
+            document.getElementById('step4Desc').textContent = langData.step4Desc;
+            document.getElementById('sellBtn').textContent = langData.sellBtn;
+            document.getElementById('helpBtn').textContent = langData.helpBtn;
+            document.getElementById('copyrightText').textContent = langData.copyright;
+            
+            document.documentElement.lang = currentLang;
+        }
+    </script>
+</body>
+</html>
